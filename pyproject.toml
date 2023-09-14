@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "GKP_optimal_prep"
+version = "0.1.0"
+description = ""
+authors = ["pragati903 <75067522+pragati903@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+quava = {path = "/Users/pragatigupta/Downloads/quava"}
+h5py = "^3.9.0"
+jax = "0.3.4"#"^0.4.13"
+jaxlib = "^0.4.13"
+ipython = "^8.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
