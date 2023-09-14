@@ -74,7 +74,12 @@ s2 = coherent_state(l=cutoff, alpha=1.4)
 
 st = np.tensordot(s1, s2, axes=0)
 rho = np.einsum('kl,mn->klmn', st, np.conj(st))
+
+# from statesfromquava import get_state
+# rho = get_state('tesseract_mx')
+
 print(rho.shape)
 plot_probability(rho)
 wfun = wigner(rho, grd=80, a=6)
+print(f"Calculated wigner; shape is {wfun.shape}")
 plot_wigner(wfun, grd=80, a=6)
