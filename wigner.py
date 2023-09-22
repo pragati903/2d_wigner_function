@@ -17,7 +17,7 @@ def wigner(rho, grd=50, a=6):
     B = 4 * np.abs(A) ** 2
     W = np.zeros(np.shape(np.tensordot(A, A, axes=0)), dtype=complex)
     l = len(rho)
-
+    num = 0
     for n1 in range(l):
         for n2 in range(l):
             for p1 in range(l):
@@ -35,7 +35,7 @@ def wigner(rho, grd=50, a=6):
                         else:
                             x2 = (2 * A) ** (p2 - n2) * np.sqrt(factorial(n2) / factorial(p2)) * genlaguerre(
                                 n2, p2 - n2)(B)
-
+                        print(num); num+=1
                         W += 4 * rho[n1, n2, p1, p2] * (-1) ** (n1 + n2) * np.tensordot(x1, x2, axes=0)
 
     return np.real(W) * np.tensordot(np.exp(-B / 2), np.exp(-B / 2), axes=0) / np.pi

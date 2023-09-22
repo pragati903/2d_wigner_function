@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 from wigner import wigner
 from utils import *
-cutoff = 10
+cutoff = 5
 def plot_probability(rho):
     plt.figure(figsize=(6, 6))
     plt.imshow(prob_distr(rho)[:8, :8], cmap='PuBu', origin='lower')
@@ -80,6 +80,10 @@ rho = np.einsum('kl,mn->klmn', st, np.conj(st))
 
 print(rho.shape)
 plot_probability(rho)
-wfun = wigner(rho, grd=80, a=6)
+wfun = wigner(rho, grd=50, a=6)
 print(f"Calculated wigner; shape is {wfun.shape}")
-plot_wigner(wfun, grd=80, a=6)
+print (wfun)
+import numpy as np
+
+# np.savez(wfun,'output2')
+plot_wigner(wfun, grd=50, a=6)
